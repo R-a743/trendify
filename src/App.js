@@ -45,7 +45,7 @@ function App() {
     }
   };
 
-  // YENİ: Toplam Tutar Hesaplama (Aşko burası çok pro!)
+  
   const toplamTutar = sepet.reduce((toplam, urun) => toplam + urun.price, 0).toFixed(2);
 
   if (yukleniyor) return <div style={centerStyle}>Mağaza Açılıyor Tatlım... ✨</div>;
@@ -53,7 +53,7 @@ function App() {
   return (
     <div style={{ backgroundColor: '#fff5f7', minHeight: '100vh', fontFamily: 'Segoe UI' }}>
       
-      {/* NAVBAR */}
+      
       <nav style={navStyle}>
         <div onClick={() => setSayfa('market')} style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#ff4d8d', cursor: 'pointer' }}>✨ Trendify</div>
         <input type="text" placeholder="Ürün ara aşko..." style={searchInputStyle} onChange={(e) => setAramaMetni(e.target.value)} />
@@ -65,7 +65,7 @@ function App() {
 
       <div style={{ padding: '20px' }}>
         
-        {/* MARKET SAYFASI */}
+        {/* MARKET SAYFASI */
         {sayfa === 'market' && (
           <>
             <div style={filterBox}>
@@ -93,7 +93,7 @@ function App() {
           </>
         )}
 
-        {/* SEPET SAYFASI (GÜNCELLENDİ) */}
+        {/* SEPET SAYFASI */}
         {sayfa === 'sepet' && (
           <div style={listContainer}>
             <h2 style={{color: '#ff4d8d'}}>Alışveriş Sepetim 🛍️</h2>
