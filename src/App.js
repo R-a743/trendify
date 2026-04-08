@@ -45,18 +45,17 @@ function App() {
     }
   };
 
-  
   const toplamTutar = sepet.reduce((toplam, urun) => toplam + urun.price, 0).toFixed(2);
 
-  if (yukleniyor) return <div style={centerStyle}>Mağaza Açılıyor Tatlım... ✨</div>;
+  if (yukleniyor) return <div style={centerStyle}>Mağaza Açılıyor... ✨</div>;
 
   return (
     <div style={{ backgroundColor: '#fff5f7', minHeight: '100vh', fontFamily: 'Segoe UI' }}>
       
-      
+      {/* NAVBAR */}
       <nav style={navStyle}>
         <div onClick={() => setSayfa('market')} style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#ff4d8d', cursor: 'pointer' }}>✨ Trendify</div>
-        <input type="text" placeholder="Ürün ara aşko..." style={searchInputStyle} onChange={(e) => setAramaMetni(e.target.value)} />
+        <input type="text" placeholder="Ürün ara ..." style={searchInputStyle} onChange={(e) => setAramaMetni(e.target.value)} />
         <div style={{ display: 'flex', gap: '20px' }}>
           <div onClick={() => setSayfa('favori')} style={iconButtonStyle}>❤️ <span style={badgeStyle}>{favoriler.length}</span></div>
           <div onClick={() => setSayfa('sepet')} style={iconButtonStyle}>🛒 <span style={badgeStyle}>{sepet.length}</span></div>
@@ -65,7 +64,7 @@ function App() {
 
       <div style={{ padding: '20px' }}>
         
-        {/* MARKET SAYFASI */
+        {/* MARKET SAYFASI */}
         {sayfa === 'market' && (
           <>
             <div style={filterBox}>
@@ -109,7 +108,6 @@ function App() {
                   </div>
                 ))}
                 
-                {/* TOPLAM TUTAR BÖLÜMÜ */}
                 <div style={totalBox}>
                    <h3 style={{margin:0}}>Genel Toplam:</h3>
                    <h3 style={{margin:0, color:'#ff4d8d'}}>${toplamTutar}</h3>
@@ -122,7 +120,7 @@ function App() {
           </div>
         )}
 
-      
+        {/* FAVORİ SAYFASI */}
         {sayfa === 'favori' && (
           <div style={listContainer}>
             <h2 style={{color: '#ff4d8d'}}>Favoriler ❤️</h2>
@@ -148,7 +146,6 @@ function App() {
 
 const totalBox = { display: 'flex', justifyContent: 'space-between', marginTop: '20px', padding: '15px', borderTop: '2px solid #ff4d8d', backgroundColor: '#fff9fb' };
 const payBtn = { width: '100%', padding: '15px', backgroundColor: '#ff4d8d', color: 'white', border: 'none', borderRadius: '15px', cursor: 'pointer', fontWeight: 'bold', fontSize: '1.1rem', marginTop: '15px', boxShadow: '0 5px 15px rgba(255,77,141,0.3)' };
-
 const navStyle = { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px 50px', backgroundColor: 'white', position: 'sticky', top: 0, zIndex: 100, boxShadow: '0 2px 10px rgba(0,0,0,0.05)' };
 const searchInputStyle = { padding: '10px 20px', borderRadius: '20px', border: '1px solid #ffcae0', width: '40%', outline: 'none' };
 const iconButtonStyle = { fontSize: '1.5rem', position: 'relative', cursor: 'pointer' };
